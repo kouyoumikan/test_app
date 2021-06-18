@@ -7,9 +7,9 @@ import 'package:test_app/model/event.dart';
 import 'package:test_app/model/colors.dart';
 
 class AddEvent extends StatefulWidget {
-//  final DateTime selectedDate;// ここの下にconst AddEvent()を追加する
-//
-//  const AddEvent({Key? key, this.selectedDate}) : super(key: key);
+  final DateTime selectedDate;// ここの下にconst AddEvent()を追加する
+
+  const AddEvent({Key? key, this.selectedDate}) : super(key: key);
 //  final AppEvent event;
 //
 //  const AddEventPage({Key key, this.selectedDate, this.event})

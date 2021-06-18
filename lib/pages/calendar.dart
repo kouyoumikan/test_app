@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:table_calendar/table_calendar.dart';
+import 'package:test_app/model/routes.dart';
 
 import 'event.dart';
 
@@ -10,6 +11,14 @@ class Calendar extends StatefulWidget {
 }
 
 class _CalendarState extends State<Calendar> {
+//  CalendarController _calendarController;
+//
+//  @override
+//  void initState() {
+//    super.initState();
+//    _calendarController = CalendarController();
+//  }
+
   late Map<DateTime, List<Event>> selectedEvents;
   CalendarFormat format = CalendarFormat.month;
   DateTime selectedDay = DateTime.now();
@@ -17,21 +26,29 @@ class _CalendarState extends State<Calendar> {
 
   TextEditingController _eventController = TextEditingController();
 
-  @override
-  void initState() {
-    selectedEvents = {};
-    super.initState();
-  }
+//  @override
+//  void initState() {
+//    selectedEvents = {};
+//    super.initState();
+//    _calendarController = CalendarController();
+//  }
 
-  List<Event> _getEventsfromDay(DateTime date) {
-    return selectedEvents[date] ?? [];
-  }
+//  @override
+//  void didChangeDependencies() {
+//    context.read(pnProvider).init();
+//    super.didChangeDependencies();
+//  }
 
-  @override
-  void dispose() {
-    _eventController.dispose();
-    super.dispose();
-  }
+
+//  List<Event> _getEventsfromDay(DateTime date) {
+//    return selectedEvents[date] ?? [];
+//  }
+//
+//  @override
+//  void dispose() {
+//    _eventController.dispose();
+//    super.dispose();
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +67,9 @@ class _CalendarState extends State<Calendar> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             TableCalendar(
+              //calendarController: _calendarController,
               locale: 'ja_JP', // カレンダーの言語を日本語で設定
+              weekendDays: [7], //
               focusedDay: selectedDay,
               firstDay: DateTime(1990),
               lastDay: DateTime(2050),
@@ -76,7 +95,7 @@ class _CalendarState extends State<Calendar> {
                 return isSameDay(selectedDay, date);
               },
 
-              eventLoader: _getEventsfromDay,
+              //eventLoader: _getEventsfromDay,
 
               //To style the Calendar
               calendarStyle: CalendarStyle(
@@ -200,6 +219,7 @@ class _CalendarState extends State<Calendar> {
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.pushNamed(context, '/add_event');
+          //Navigator.pushNamed(context, AppRoutes.addEvent, arguments: selectedDay);
         },
         //onPressed: () => Navigator.pushNamed(context, '/add_event'),
         //onPressed: () => Navigator.of(context).pushNamed("/add_event"),
