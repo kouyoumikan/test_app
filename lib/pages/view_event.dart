@@ -220,7 +220,7 @@ class _ViewEventState extends State<ViewEvent> {
             FlatButton(
               child: Text("Save"),
               onPressed: () {
-                if (_eventController.text.isEmpty) return;
+//                if (_eventController.text.isEmpty) return;
 //                if (_events[_controller.selectedDay] != null) {
 //                  _events[_controller.selectedDay]
 //                      .add(_eventController.text);
@@ -236,8 +236,8 @@ class _ViewEventState extends State<ViewEvent> {
             )
           ],
         ));
-    setState(() {
-      //_selectedEvents = _events[_controller.selectedDay];
-    });
+//    setState(() {
+//      _selectedEvents = _events[_controller.selectedDay];
+//    });
   }
 }
