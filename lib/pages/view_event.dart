@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -112,6 +113,28 @@ class _ViewEventState extends State<ViewEvent> {
                 });
               },
               calendarBuilders: CalendarBuilders(
+                dowBuilder: (context, day) {
+                  if (day.weekday == DateTime.sunday) { // 日曜日のテキストカラー変更
+                    final text = DateFormat.E().format(day);
+
+                    return Center(
+                      child: Text(
+                        text,
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    );
+                  }
+                  if (day.weekday == DateTime.saturday) { // 土曜日のテキストカラー変更
+                    final text = DateFormat.E().format(day);
+
+                    return Center(
+                      child: Text(
+                        text,
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    );
+                  }
+                },
                 selectedBuilder: (context, date, events) => Container(
                     margin: const EdgeInsets.all(4.0),
                     alignment: Alignment.center,
