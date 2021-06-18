@@ -6,7 +6,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[200], // 背景色
       appBar: AppBar(
-        title: Text("しあわせ貯金"),
+        title: Text("ホーム Pages"),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.lightBlue, // アプリバーの背景色
@@ -46,9 +46,9 @@ class Home extends StatelessWidget {
           if (index == 0) {
             // First Icon が押されたときは前の画面に戻る
             // Navigator.of(context).pop();
-            Navigator.of(context).pushNamed("/home");
+            //Navigator.of(context).pushNamed("/home");
           } else if (index == 1) {
-            Navigator.of(context).pushNamed("/create");
+            Navigator.of(context).pushNamed("/view_event");
           } else if (index == 2) {
             Navigator.of(context).pushNamed("/calendar");
           } else if (index == 3) {
